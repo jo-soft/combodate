@@ -484,7 +484,9 @@
         destroy: function() {
             this.$widget.remove();
             this.$element.removeData('combodate').show();
-        },
+        }
+
+        //todo: clear method
     };
 
     $.fn.combodate = function ( option ) {
