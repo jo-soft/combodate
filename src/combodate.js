@@ -369,7 +369,7 @@
 
         setValue: function(value) {
             if(!value) {
-                return;
+                this.clear()
             }
 
             // parse in strict mode (third param `true`)
@@ -484,9 +484,20 @@
         destroy: function() {
             this.$widget.remove();
             this.$element.removeData('combodate').show();
-        }
+        },
 
-        //todo: clear method
+        clear: function() {
+          var that = this;
+
+          $.each(this.map, function(k, v) {
+            if(that['$'+k]) {
+              that['$'+k].val("");
+            }
+          });
+
+          this.datetime = null;
+
+        }
     };
 
     $.fn.combodate = function ( option ) {
